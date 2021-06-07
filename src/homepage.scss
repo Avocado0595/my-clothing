@@ -1,0 +1,36 @@
+.homepage{
+    margin-top: 50px;
+}
+.homepage-row{
+    display:flex;
+    margin: auto 45px;
+}
+
+.homepage-row:first-child{ 
+    .directory-menu{
+        width: 33.33%;
+        margin: 8px 8px;
+    }
+}
+.homepage-row:last-child{
+    grid-template-columns: 5fr 5fr;
+
+    .directory-menu{
+        width: 50%;
+        margin: 8px 8px;
+    }
+}
+.directory-menu{
+    border: solid 1px;
+    height: 300px;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    display: flex;
+}
+.menu-item{
+    border: solid 1px;
+    width: 155px;
+    padding: 10px;
+}

@@ -7,7 +7,7 @@
 }
 
 .homepage-row:first-child{ 
-    .directory-menu{
+    .directory-layout{
         width: 33.33%;
         margin: 8px 8px;
     }
@@ -15,22 +15,48 @@
 .homepage-row:last-child{
     grid-template-columns: 5fr 5fr;
 
-    .directory-menu{
+    .directory-layout{
         width: 50%;
         margin: 8px 8px;
     }
+    .menu-item{
+        width: 300px;
+    }
 }
-.directory-menu{
+.directory-layout{
     border: solid 1px;
     height: 300px;
     text-align: center;
     align-items: center;
     align-self: center;
     justify-content: center;
-    display: flex;
+    cursor: pointer;
+    overflow: hidden;
+    
 }
+.directory-menu{
+    height: 300px;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    transition: transform 1.5s ease;
+}
+
 .menu-item{
-    border: solid 1px;
+    border-radius: 2px;
     width: 155px;
     padding: 10px;
+    background: #fcf7f7ab;
+    transition: none;
+    
+}
+.menu-item:hover{
+    background: #ffffffcc;
+}
+.directory-menu:hover{
+    transform: scale(1.2);
 }

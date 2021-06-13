@@ -11,7 +11,7 @@
         width: 50%;
         margin: 8px 8px;
         .menu-item{
-            width: 300px;
+            width: 250px;
         }
     }
     &.small-menu{
@@ -27,4 +27,22 @@
     }
 
 }
+}
+
+@media (max-width: 376px){
+    .homepage-row{
+        flex-direction: column;
+    }
+    
+    .directory-menu{
+        &.large-menu,
+        &.small-menu
+        {
+            width: 100%;
+            margin: 8px 8px;
+            .menu-item{
+                width: 200px;
+            }
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import { lab } from 'color';
+
 import React from 'react';
 import './form-input.scss';
 

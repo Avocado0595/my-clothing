@@ -16,6 +16,7 @@ function SignUp(){
         try{
             const {user} = await auth.createUserWithEmailAndPassword(email, password);
             createUserProfile(user,{displayName})
+            setFormValue({displayName:'',email:'', password:'',confirmPassword:''});
         }
         catch(err){
             console.log('Sign up fail: ', err.message);

@@ -3,6 +3,9 @@ import Image from '../../image/index';
 import {Link} from 'react-router-dom';
 import {auth} from '../../firebase/Firebase';
 import './navbar.scss';
+import {connect} from 'react-redux';
+
+
 const Navbar = function({currentUser}){
     return(
         <nav className="navbar">
@@ -23,4 +26,8 @@ const Navbar = function({currentUser}){
     )
 }
 
-export default Navbar;
+const mapStateToProps = state=>(
+    {currentUser : state.user.currentUser}
+)
+
+export default connect(mapStateToProps)(Navbar);

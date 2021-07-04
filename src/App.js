@@ -13,7 +13,7 @@ import { setCurrentUser } from './redux/user/userAction';
 
 function App(props) {
 
-  const {setCurrentUser} = props;
+  const { setCurrentUser} = props;
 
   useEffect(()=>{
     const unSubcribeFromAuth = auth.onAuthStateChanged(async user=>{
@@ -46,8 +46,11 @@ function App(props) {
   );
 }
 
-const mapDispatchToProps = dispatch=>({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-})
+const mapDispatchToProps = {setCurrentUser};
+//same way
+// const mapDispatchToProps = dispatch=>({
+//   setCurrentUser: user => dispatch(setCurrentUser(user))
+// })
+
 
 export default connect(null,mapDispatchToProps)(App);

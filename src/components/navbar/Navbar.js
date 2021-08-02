@@ -7,7 +7,8 @@ import {connect} from 'react-redux';
 import Cart from '../cart/Cart';
 import CartDropdown from '../cart-dropdown/CartDropdown';
 
-const Navbar = function({currentUser}){
+const Navbar = function({currentUser, listItem}){
+    const totalItem = listItem?listItem.reduce((total, item)=>total+=item.count,0):0;
     return(
         <div className="navbar-layout">
         <nav className="navbar">
@@ -22,7 +23,7 @@ const Navbar = function({currentUser}){
                     <div className="nav-link" onClick = {()=>auth.signOut()}>SIGN OUT</div>:
                 <Link className="nav-link" to="/sign-in">SIGN IN</Link>
                 }
-                <Link className="nav-link" to="/"><Cart numberOfItem={0}/></Link>
+                <Link className="nav-link" to="/"><Cart numberOfItem={totalItem}/></Link>
             </div>
             
         </nav>
@@ -35,7 +36,9 @@ const Navbar = function({currentUser}){
 }
 
 const mapStateToProps = state=>(
-    {currentUser : state.user.currentUser}
+    {currentUser : state.user.currentUser,
+        listItem: state.product.listItem
+    }
 )
 
 export default connect(mapStateToProps)(Navbar);

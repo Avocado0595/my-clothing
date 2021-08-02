@@ -12,7 +12,7 @@ class ShopPage extends Component {
         <div className="shop-page">
             <h2>Collections</h2>
             {
-                collections.map(({id, ...otherCollection})=><CollectionPreView key={id} {...otherCollection}/>)
+                collections.map(({id, ...otherCollection})=><CollectionPreView key={id} {...otherCollection} collectionsId={id}/>)
             }
         </div>
     )

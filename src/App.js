@@ -2,7 +2,7 @@
 import React, { useEffect} from 'react';
 import './App.css';
 import HomePage from './pages/hompage/HomePage';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import ShopPage from './pages/shoppage/ShopPage';
 import Navbar from './components/navbar/Navbar';
 import SignInSignOut from './pages/signin-signout/SignInSignOut';
@@ -13,7 +13,7 @@ import { setCurrentUser } from './redux/user/userAction';
 
 function App(props) {
 
-  const { setCurrentUser} = props;
+  const { setCurrentUser, currentUser} = props;
 
   useEffect(()=>{
     const unSubcribeFromAuth = auth.onAuthStateChanged(async user=>{
@@ -39,18 +39,20 @@ function App(props) {
       <Navbar/>
       <Switch>
         <Route exact path="/shop-page" component={ShopPage} />
-        <Route exact path="/sign-in" component={SignInSignOut} />
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/sign-in" render={()=>currentUser ? (<Redirect to="/"/>) : (<SignInSignOut/>)  }/>
       </Switch>
     </div>
   );
 }
-
-const mapDispatchToProps = {setCurrentUser};
+const mapStateToProps = ({user})=>({
+  currentUser: user.currentUser
+})
+//const mapDispatchToProps = {setCurrentUser};
 //same way
-// const mapDispatchToProps = dispatch=>({
-//   setCurrentUser: user => dispatch(setCurrentUser(user))
-// })
+const mapDispatchToProps = dispatch=>({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
 
 
-export default connect(null,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

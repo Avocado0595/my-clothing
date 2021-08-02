@@ -1,0 +1,23 @@
+.cart{
+    position: relative;
+    .cart__dopdown-layout{
+        position: absolute;
+    }
+    .quantity{
+        position: absolute;
+        top:0px;
+        right:-4px;
+        border: solid 1px black;
+        background-color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        .quantity_number{
+            font-size: small;
+            font-weight: bold;
+            color: black;
+        }
+       
+    }
+}

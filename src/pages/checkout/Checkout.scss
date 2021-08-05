@@ -3,6 +3,21 @@
     width: 75% !important;
     margin: auto !important;
     .item-img{
-        width: 50px;
+        width: 80px;
+    }
+    .number-updown-group{
+        display: flex;
+        .number-updown__btn{
+            background-color: white;
+            border: solid rgb(137, 137, 137) 0.2px;
+            width: 40px;
+        }
+        .number-updown__input{
+            text-align: center;
+            width: 40px;
+            border: solid rgb(137, 137, 137) 0.2px;
+            
+    
+        }
     }
 }

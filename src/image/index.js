@@ -5,5 +5,6 @@ import jacketCategory from './jacket-category.webp';
 import sneakerCategory from './sneaker-category.webp';
 import logo from './crown.svg';
 import cart from './cart.svg';
-const Image =  {cart, manCategory, womanCategory, hatCategory, jacketCategory, sneakerCategory, logo};
+import trash from './trash.svg';
+const Image =  {cart, manCategory, womanCategory, hatCategory, jacketCategory, sneakerCategory, logo, trash};
 export default Image;

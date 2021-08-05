@@ -3,7 +3,7 @@
 const initState = {
     listItem: []
 }
-const productReducer = (state=initState, action)=>{
+const cartReducer = (state=initState, action)=>{
     switch(action.type){
         case "ADD_ITEM":
             let newItem = action.payload;
@@ -26,7 +26,7 @@ const productReducer = (state=initState, action)=>{
     }
 }
 
-export default productReducer;
+export default cartReducer;
 
 // {id: 1,
 //     name: 'Brown Brim',

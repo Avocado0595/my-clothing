@@ -1,11 +1,14 @@
 @font-face {
-    font-family: Open-Sans-Condensed;
+    font-family: Open-Sans-Condensed !important;
     src: url('./font/OpenSansCondensed-Light.ttf');
   }
 body{
-    font-family: 'Open-Sans-Condensed', sans-serif;
+    font-family: 'Open-Sans-Condensed', sans-serif !important;
     width: 90%;
     margin: auto;
+}
+.small-icon{
+  width: 20px !important;
 }
 *{
   box-sizing: border-box;

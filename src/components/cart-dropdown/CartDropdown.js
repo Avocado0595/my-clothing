@@ -3,27 +3,30 @@ import PropTypes from 'prop-types';
 import './CartDropdown.scss';
 import CustomButton from '../custombutton/CustomButton';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 CartDropdown.propTypes = {
     
 };
 
 function CartDropdown(props) {
-    const {listItem} = props;
-    if (listItem.length === 0)
-        return (<div className="cart-dropdown">
-            <p>Nothing here!</p>
-        </div>)
-        else
+    const {listItem, handleCartDropdown} = props;
+
     return (
         <div className="cart-dropdown">
-            <ul id="scrollbar-style">
+            <button onClick={handleCartDropdown} className="close-btn">x</button>
+            {
+                  listItem.length === 0 ? 
+                    <p>Nothing here!</p>
+                  :
+                  <>
+            <ul className="dropdown-list">
                 {
                     listItem.map((item)=>(
                         <li key = {item.id}>
                     <img className="img-range" src={item.imageUrl}/>
 
                     <div className="info-range">
-                        <h4>{item.name}</h4>
+                        <h5>{item.name}</h5>
                         <p>{item.count} x {item.price}$</p>
                     </div>
                 </li>
@@ -31,13 +34,15 @@ function CartDropdown(props) {
                 
                 }
             </ul>
-            <CustomButton color="white-theme">CHECK OUT</CustomButton>
+                <Link to="/checkout" onClick={handleCartDropdown}><CustomButton color="white-theme">CHECK OUT</CustomButton></Link>
+            </>
+            }   
         </div>
     );
 }
 const mapStateToProps = state=>(
     {
-        listItem: state.product.listItem
+        listItem: state.cart.listItem
     }
 )
 

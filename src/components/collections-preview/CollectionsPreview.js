@@ -1,7 +1,7 @@
 import React from 'react';
 import './collectionspreview.scss';
 import {connect} from 'react-redux';
-import { addItem } from '../../redux/product/productAction';
+import { addItem } from '../../redux/cart/cartAction';
 
 const CollectionPreView = (props)=>{
     const {addItem, collectionsId} = props;
@@ -16,8 +16,8 @@ const CollectionPreView = (props)=>{
                             <div onClick={()=>addItem({...item, collectionsId: collectionsId})} className="collection-item__img--cart">ADD TO CART</div>
                         </div>
                         <div className="collection-item__detail">
-                            <h3>{item.name}</h3>
-                            <h3>{item.price}$</h3>
+                            <h4>{item.name}</h4>
+                            <h4>{item.price}$</h4>
                         </div>
                     </div>
                 )

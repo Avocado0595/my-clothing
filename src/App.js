@@ -1,5 +1,6 @@
 
 import React, { useEffect} from 'react';
+
 import './App.css';
 import HomePage from './pages/hompage/HomePage';
 import {Route, Switch, Redirect} from 'react-router-dom';
@@ -10,6 +11,7 @@ import {auth, createUserProfile}  from './firebase/Firebase';
 
 import {connect} from 'react-redux';
 import { setCurrentUser } from './redux/user/userAction';
+import Checkout from './pages/checkout/Checkout';
 
 function App(props) {
 
@@ -38,6 +40,7 @@ function App(props) {
     <div>
       <Navbar/>
       <Switch>
+      <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/shop-page" component={ShopPage} />
         <Route exact path="/" component={HomePage} />
         <Route exact path="/sign-in" render={()=>currentUser ? (<Redirect to="/"/>) : (<SignInSignOut/>)  }/>

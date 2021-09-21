@@ -1,0 +1,14 @@
+.nav-link{
+    &:hover,
+    &--active{
+        background-color: #c8c8c885;              
+    }
+    
+    border-radius: 22px;
+    padding: 4px 20px !important;
+    margin: 0px 4px;
+    text-decoration: none;
+    font-size: 18px;
+    color:black;
+    cursor: pointer;            
+  }

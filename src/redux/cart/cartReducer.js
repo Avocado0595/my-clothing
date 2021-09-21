@@ -9,7 +9,7 @@ const cartReducer = (state=initState, action)=>{
             let newItem = action.payload;
             let newListItem = [...state.listItem];
             
-            let existItem = newListItem.find(item=>item.id === newItem.id && item.collectionsId === newItem.collectionsId);
+            let existItem = newListItem.find(item=>item.id === newItem.id);
             if(!existItem){
                 newListItem.push({...newItem, count: 1});
             }
@@ -28,7 +28,7 @@ const cartReducer = (state=initState, action)=>{
             let newItem = action.payload;
             let newListItem = [...state.listItem];
             
-            let existItem = newListItem.find(item=>item.id === newItem.id && item.collectionsId === newItem.collectionsId);
+            let existItem = newListItem.find(item=>item.id === newItem.id);
             if(existItem){
                 let indexExist = newListItem.indexOf(existItem);
                 if(newListItem[indexExist].count > 1)

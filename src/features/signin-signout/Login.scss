@@ -1,0 +1,27 @@
+.login-layout{
+    width: 40%;
+    margin: auto;
+    .btn-group{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+}
+@media (max-width: 769px) {
+    .login-layout{
+        width: 450px;
+    }
+
+  }
+
+@media (max-width: 376px) {
+    .login-layout{
+        width: 350px;
+        .btn-group{
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+
+  }

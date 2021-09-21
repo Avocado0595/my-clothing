@@ -1,6 +1,6 @@
 @font-face {
     font-family: Open-Sans-Condensed !important;
-    src: url('./font/OpenSansCondensed-Light.ttf');
+    src: url('./assets/font/OpenSansCondensed-Light.ttf');
   }
 body{
     font-family: 'Open-Sans-Condensed', sans-serif !important;
@@ -11,6 +11,22 @@ body{
   width: 20px !important;
   cursor: pointer;
 }
+
 *{
   box-sizing: border-box;
+}
+.error-text{
+  color: red;
+  font-style: italic;
+}
+@media (max-width: 376px){
+  *{
+    font-size: 80%;
+  }
+}
+
+@media (max-width: 769px){
+  *{
+    font-size: 90%;
+  }
 }

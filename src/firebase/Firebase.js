@@ -4,15 +4,14 @@ import 'firebase/auth';
 
 const config =
 {
-    apiKey: "AIzaSyC1mTWawDyBSYYStEW_KdzFGcoNDfxKxKY",
-    authDomain: "my-clothing-12b89.firebaseapp.com",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
     projectId: "my-clothing-12b89",
     storageBucket: "my-clothing-12b89.appspot.com",
     messagingSenderId: "991011050707",
     appId: "1:991011050707:web:fa47950e3a80b61450b026",
     measurementId: "G-GZ6QG691ND"
 };
-
 
 export const createUserProfile = async (userAuth, additionalData)=>{
     if(!userAuth) return;

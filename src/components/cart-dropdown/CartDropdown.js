@@ -5,38 +5,39 @@ import CustomButton from '../custombutton/CustomButton';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 CartDropdown.propTypes = {
-    
+    listItem: PropTypes.any,
+    handleCartDropdown: PropTypes.func
 };
 
 function CartDropdown(props) {
-    const {listItem, handleCartDropdown} = props;
+    const { listItem, handleCartDropdown, showCart } = props;
 
     return (
-        <div className="cart-dropdown">
-            <button onClick={handleCartDropdown} className="close-btn">x</button>
+        <div className={`cart-dropdown${' '+showCart}`}>
+            <button onClick={handleCartDropdown} className="close-btn"><span>x</span></button>
             {
-                  listItem.length === 0 ? 
+                listItem.length === 0 ?
                     <p>Nothing here!</p>
-                  :
-                  <>
-            <ul className="dropdown-list">
-                {
-                    listItem.map((item)=>(
-                        <li key = {item.id}>
-                    <img className="img-range" src={item.imageUrl}/>
+                    :
+                    <>
+                        <ul className="dropdown-list">
+                            {
+                                listItem.map((item) => (
+                                    <li key={item.id}>
+                                        <img alt={item.name} className="img-range" src={item.imageUrl} />
 
-                    <div className="info-range">
-                        <h5>{item.name}</h5>
-                        <p>{item.count} x {item.price}$</p>
-                    </div>
-                </li>
-                    ))
-                
-                }
-            </ul>
-                <Link to="/checkout" onClick={handleCartDropdown}><CustomButton color="white-theme">CHECK OUT</CustomButton></Link>
-            </>
-            }   
+                                        <div className="info-range">
+                                            <h5>{item.name}</h5>
+                                            <p>{item.count} x {item.price}$</p>
+                                        </div>
+                                    </li>
+                                ))
+
+                            }
+                        </ul>
+                        <Link to="/checkout" onClick={handleCartDropdown}><CustomButton>CHECK OUT</CustomButton></Link>
+                    </>
+            }
         </div>
     );
 }
@@ -47,4 +48,3 @@ const mapStateToProps = state=>(
 )
 
 export default connect(mapStateToProps)(CartDropdown);
-//<img src="https://i.ibb.co/ZYW3VTp/brown-brim.png"/>

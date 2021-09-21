@@ -1,27 +1,41 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    .nav-list{
-        
+    .nav-list{    
         display: flex;
-        align-items: center;
-        .nav-link{
-            margin: 0px 10px;
-            text-decoration: none;
-            font-size: 24px;
-            .cart-icon{
-                width: 35px;
-            }
-            cursor: pointer;            
-          }
-        
+        align-items: center;      
+          .cart-icon{
+            width: 35px;
+            cursor: pointer;
+        }
       }
 
   }
   .navbar-layout{
       position: relative;
+      margin-bottom: 10px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.117);
   .cart-dropdown-layout{
     display: flex;
     justify-content: flex-end;
 }  
+  }
+//mobile responsive
+.mobile-menu--icon{
+    width: 30px;
+    margin-left: 20px;
+    display: none;
+}
+  @media (max-width: 530px) {
+    .navbar{
+        .nav-list:last-child{
+            display: flex;
+            flex-direction: column;
+            font-size: small;
+        }
+    }
+    .mobile-menu--icon{
+        display: block;
+    }
+
   }

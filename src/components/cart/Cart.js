@@ -1,13 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Image from '../../image/index';
+import Image from '../../assets/image/index';
 import './Cart.scss';
-Cart.propTypes = {
-    
-};
 
-function Cart(props) {
-    const {numberOfItem} = props;
+function Cart({numberOfItem}) {
     return (
         <div className="cart">
             <img className="cart-icon" src={Image.cart} alt="cart" />

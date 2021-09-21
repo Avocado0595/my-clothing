@@ -2,16 +2,21 @@
 import React, { useEffect} from 'react';
 
 import './App.css';
-import HomePage from './pages/hompage/HomePage';
-import {Route, Switch, Redirect} from 'react-router-dom';
-import ShopPage from './pages/shoppage/ShopPage';
+import HomePage from './features/hompage/HomePage';
+import {Route,Switch, Redirect} from 'react-router-dom';
+import ShopPage from './features/shoppage/ShopPage';
 import Navbar from './components/navbar/Navbar';
-import SignInSignOut from './pages/signin-signout/SignInSignOut';
 import {auth, createUserProfile}  from './firebase/Firebase';
 
 import {connect} from 'react-redux';
 import { setCurrentUser } from './redux/user/userAction';
-import Checkout from './pages/checkout/Checkout';
+import Checkout from './features/checkout/Checkout';
+import SignUp from './features/signin-signout/components/sign-up/SignUp';
+import SignIn from './features/signin-signout/components/sign-in/SignIn';
+import Contact from './features/contact/Contact';
+import NotFound from './components/notfound/NotFound';
+
+
 
 function App(props) {
 
@@ -35,26 +40,29 @@ function App(props) {
       );
       return function cleanUp() {unSubcribeFromAuth()};
 
-  }, [])
+  }, [setCurrentUser])
   return (
     <div>
       <Navbar/>
       <Switch>
-      <Route exact path="/checkout" component={Checkout} />
-        <Route exact path="/shop-page" component={ShopPage} />
+        <Route exact path="/checkout" component={Checkout} />
+        <Route path="/shop-page" component={ShopPage} />
+        <Route exact path="/sign-in" render={()=>currentUser ? (<Redirect to="/"/>) : (<SignIn/>)  }/>
+        <Route exact path="/sign-up"  render={()=>currentUser ? (<Redirect to="/"/>) : (<SignUp/>) }/>
+        <Route exact path="/contact" component={Contact} />
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/sign-in" render={()=>currentUser ? (<Redirect to="/"/>) : (<SignInSignOut/>)  }/>
+        <Route component={NotFound}/>
       </Switch>
     </div>
   );
 }
-const mapStateToProps = ({user})=>({
-  currentUser: user.currentUser
+const mapStateToProps = ({user, cart})=>({
+  currentUser: user.currentUser,
+  cartHidden: cart.isHidden
 })
-//const mapDispatchToProps = {setCurrentUser};
-//same way
+
 const mapDispatchToProps = dispatch=>({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
 })
 
 
